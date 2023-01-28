@@ -24,9 +24,9 @@ user can upload data 30 day to predict 5 next day from csv file
 1. user can upload data in task `import data`
 
 
-upload data: ![image](img\1.png)
+upload data: ![image](https://github.com/nhanvu10092001/Predict_Chung_Khoan/blob/main/img/1.png)
 
 2. user can get predict result from file uploaded in `predict`
 
 
-predict data: ![image](img\2.png)
+predict data: ![image](https://github.com/nhanvu10092001/Predict_Chung_Khoan/blob/main/img/2.png)
