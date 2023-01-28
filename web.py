@@ -82,11 +82,11 @@ else :
     model.load_state_dict(torch.load('model.pth'))
         
     st.text(model.eval())
-    scaler = joblib.load('scaler.save')
+
     
     if os.path.exists('user_data.csv') :
         data = pd.read_csv('user_data.csv').drop('Unnamed: 0', axis = 1)
-        data = scaler.transform(data)
+        
         data = torch.tensor(data, dtype = torch.float)
         result = model(data)
         result = result.cpu().detach().numpy().flatten()
@@ -103,8 +103,7 @@ else :
         os.remove('user_data.csv')
 
     data_today  = get_data.get_data()
-    data_today = scaler.transform(data_today)
-    data_today = torch.tensor(data_today, dtype = torch.float)
+    data_today = torch.tensor(data_today.to_numpy(), dtype = torch.float)
     result_today  = model(data_today)
     st.text('Predict for next 5 day: \n')
     result_today = result_today.cpu().detach().numpy().flatten()
